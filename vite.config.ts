@@ -56,7 +56,10 @@ function sitemapPlugin(): Plugin {
 }
 
 // https://vitejs.dev/config/
+// BASE_PATH allows deploying to subpath hosts like GitHub Pages
+// (e.g. set BASE_PATH=/CRM-auto/ in the deploy workflow). Defaults to "/" for Lovable hosting.
 export default defineConfig(({ mode }) => ({
+  base: process.env.BASE_PATH || "/",
   server: {
     host: "::",
     port: 8080,
